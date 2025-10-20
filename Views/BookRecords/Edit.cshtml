@@ -1,0 +1,54 @@
+﻿@model BookRecordApp.Models.BookRecord
+
+@{
+	ViewData["Title"] = "Edit";
+}
+<body class="container mt-4">
+
+	<h1 class="mb-4">Edit Book Record</h1>
+
+	<form asp-action="Edit" class="needs-validation" novalidate>
+		<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+		<input type="hidden" asp-for="Id" />
+
+		<div class="form-group mb-3 mb-3">
+			<label asp-for="BookName" class="control-label"></label>
+			<input asp-for="BookName" class="form-control"></input>
+			<span asp-validation-for="BookName" class="text-danger"></span>
+		</div>
+
+		<div class="form-group mb-3">
+			<label asp-for="AuthorName" class="control-label"></label>
+			<input asp-for="AuthorName" class="form-control"></input>
+			<span asp-validation-for="AuthorName" class="text-danger"></span>
+		</div>
+
+		<div class="form-group mb-3">
+			<label asp-for="StartDate" class="control-label"></label>
+			<input asp-for="StartDate" class="form-control" type="date"></input>
+			<span asp-validation-for="StartDate" class="text-danger"></span>
+		</div>
+
+		<div class="form-group mb-3">
+			<label asp-for="EndDate" class="control-label"></label>
+			<input asp-for="EndDate" class="form-control" type="date"></input>
+			<span asp-validation-for="EndDate" class="text-danger"></span>
+		</div>
+
+		<div class="form-group mb-3">
+			<label asp-for="Count" class="control-label"></label>
+			<input asp-for="Count" class="form-control" type="number"></input>
+			<span asp-validation-for="Count" class="text-danger"></span>
+		</div>
+
+		<button type="submit" class="btn btn-primary w-100">Salvar</button>
+		<a asp-action="Index" class="btn btn-secondary w-100 mt-2">Cancelar</a>
+
+	</form>
+</body>
+
+@section Scripts {
+	@{
+		await Html.RenderPartialAsync("_ValidationScriptsPartial");
+	}
+}
