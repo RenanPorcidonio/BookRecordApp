@@ -37,6 +37,7 @@ namespace BookRecordApp.Controllers
 				_context.BookRecords.Add(record);
 				await _context.SaveChangesAsync();
 				return RedirectToAction("Index");
+
 			}
 			return View();
 		}
