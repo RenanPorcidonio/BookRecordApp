@@ -19,6 +19,8 @@
 					<th class="fs-6">Nome do autor</th>
 					<th class="fs-6">Data de inicio</th>
 					<th class="fs-6">Data de término</th>
+					<th class="fs-6">Status</th>
+					<th class="fs-6">Classificação</th>
 					<th class="fs-6">Contagem</th>
 					<th></th>
 				</tr>
@@ -30,8 +32,10 @@
 					<tr style="line">
 						<td class="fs-6">@item.BookName</td>
 						<td class="fs-6">@item.AuthorName</td>
-						<td class="fs-6">@item.StartDate.ToShortDateString()</td>
-						<td class="fs-6">@item.EndDate.ToShortDateString()</td>
+						<td class="fs-6">@item.StartDate?.ToShortDateString()</td>
+						<td class="fs-6">@item.EndDate?.ToShortDateString()</td>
+						<td class="fs-6">@item.Status</td>
+						<td class="fs-6">@item.Rating</td>
 						<td class="fs-6">@item.Count</td>
 						<td>
 							<a class="btn btn-sm btn-info me-1 mb-1 px-3 py-2" asp-action="Edit" asp-route-id="@item.Id">Editar</a>
@@ -51,8 +55,10 @@
 					<h5 class="card-title">@item.BookName</h5>
 					<h6 class="card-subtitle mb-2 text-muted">@item.AuthorName</h6>
 					<p class="card-text mb-1">
-						<strong>Start:</strong> @item.StartDate.ToShortDateString()<br />
-						<strong>Finish:</strong> @item.EndDate.ToShortDateString()<br />
+						<strong>Status:</strong> @item.Status<br />
+						<strong>Start:</strong> @item.StartDate?.ToShortDateString()<br />
+						<strong>Finish:</strong> @item.EndDate?.ToShortDateString()<br />
+						<strong>Rating:</strong> @item.Rating<br />
 						<strong>Read Count:</strong> @item.Count
 					</p>
 					<div class="mt-3">
