@@ -34,7 +34,7 @@ namespace BookRecordApp.Models
         public DateTime? EndDate { get; set; }
 
         [Range(0, int.MaxValue)]
-        [Display(Name = "Pages/Count")]
+        [Display(Name = "Vezes Lido")]
         public int Count { get; set; }
 
         [Range(1, 5)]

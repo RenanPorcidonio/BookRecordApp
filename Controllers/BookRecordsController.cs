@@ -15,10 +15,19 @@ namespace BookRecordApp.Controllers
 		}
 
 		//GET: /BookRecords
-		public async Task<IActionResult> Index()
+		public async Task<IActionResult> Index(string searchString)
 		{
-			var records = await _context.BookRecords.ToListAsync();
-			return View(records);
+			ViewData["CurrentFilter"] = searchString;
+
+			var records = from r in _context.BookRecords
+						  select r;
+
+			if (!String.IsNullOrEmpty(searchString))
+			{
+				records = records.Where(r => r.BookName.Contains(searchString) || r.AuthorName.Contains(searchString));
+			}
+
+			return View(await records.ToListAsync());
 		}
 
 		//GET: /BookRecords/Create
